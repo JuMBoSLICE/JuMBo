@@ -1,17 +1,20 @@
 const express = require('express');
 // var fs = require('fs');
-// const bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
 const port = process.env.PORT || 3000;
 const pg = require('pg');
-const Sequelize = require('sequelize');
+const db = require('./database');
 
 const app = express();
 
-const sequelize = new Sequelize('postgres://zzblcmad:7pM3odT6TkIDgJkOh4bhouvlGIWXdXxg@elmer.db.elephantsql.com:5432/zzblcmad');
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(express.static('src'));
 
-
+app.get('*', (req, res) => res.status(200).send({
+  message: 'codeLaborate!'
+}));
 
 
 app.listen(port, () => {
