@@ -1,12 +1,12 @@
 var path = require('path');
 var webpack = require('webpack');
 var BUILD = path.resolve(__dirname, 'src/client/public');
-var CLIENT = path.resolve(__dirname, 'src/client/app')
+var CLIENT = path.resolve(__dirname, 'src/client/app');
 module.exports = {
   entry: [
     'webpack-dev-server/client?http://localhost:8080',
     'webpack/hot/only-dev-server',
-    CLIENT + '/components/index.jsx',
+    CLIENT + '/components/index.js',
     ],
   output: {
     path: BUILD,
@@ -25,7 +25,7 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.jsx?$/,
+        test: /\.js?$/,
         exclude: /node_modules/,
         loaders: ['react-hot', 'babel?presets[]=es2015,presets[]=react'],
         include: path.join(__dirname, 'src')

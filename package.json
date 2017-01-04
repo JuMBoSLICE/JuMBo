@@ -4,9 +4,9 @@
   "description": "Project Management for project managers",
   "main": "index.js",
   "scripts": {
-    "build": "./node_modules/.bin/webpack -w",
     "test": "webpack-dev-server",
-    "start": "nodemon src/server/server.js"
+    "start": "nodemon src/server/server.js",
+    "build": "./node_modules/.bin/webpack -w"
   },
   "author": "",
   "license": "MIT",
