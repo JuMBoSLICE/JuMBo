@@ -16,7 +16,6 @@ app.get('*', (req, res) => res.status(200).send({
   message: 'codeLaborate!'
 }));
 
-
 app.listen(port, () => {
   console.log("Listening on port " + port);
 });
