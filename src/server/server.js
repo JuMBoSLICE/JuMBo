@@ -1,22 +1,20 @@
-<<<<<<< HEAD
-var pg = require('pg');
-var Sequelize = require('sequelize');
-var express = require('express');
-var fs = require('fs');
-var bodyParser = require('body-parser');
+const express = require('express');
+// var fs = require('fs');
+// const bodyParser = require('body-parser');
+const port = process.env.PORT || 3000;
+const pg = require('pg');
+const Sequelize = require('sequelize');
 
-var app = express();
-=======
-const express = require("express");
-const path = require('path');
-app = express();
+const app = express();
 
-app.use(Express.static(path.join(__dirname, 'static')));
+const sequelize = new Sequelize('postgres://zzblcmad:7pM3odT6TkIDgJkOh4bhouvlGIWXdXxg@elmer.db.elephantsql.com:5432/zzblcmad');
 
-
-app.get("/", (req, res) => {});
+app.use(express.static('src'));
 
 
 
-app.listen(3000);
->>>>>>> a29b8be67c4be59d96ec15e401aa50fdf0a6218a
+
+app.listen(port, () => {
+  console.log("Listening on port " + port);
+});
+
