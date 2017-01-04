@@ -58,21 +58,32 @@ const Tasks = sequelize.define('tasks', {
   freezeTableName: true
 });
 
-// add new user method (on sign-up)
-Users.sync().then(function () { //forces drop and re-add of table
-  // Users.create({
-  //   username: 'batman',
-  //   password: 'rachel',
-  //   name: 'morgan'
-  // }).then(function (user) {
-  //   user.setProjects(Projects, {title: 'save rachel', summary: 'kill joker'})
-  // });
+const ProjectUsers = sequelize.define('project_users', {
+  
+}, {
+  freezeTableName: true
 });
 
-Projects.sync().then(function () { //forces drop and re-add of table
-  // Projects.create().then(function (project) {
-  // });
+// add new user method (on sign-up)
+Users.sync({ force: true }).then(function () { //forces drop and re-add of table
+  Users.create({
+    username: 'batman',
+    password: 'rachel',
+    name: 'morgan'
+  }).then(function (user) {});
 });
+
+Projects.sync({ force: true }).then(function () { //forces drop and re-add of table
+  Projects.create({
+    title: 'save rachel',
+    summary: 'kill joker'
+  }).then(function (project) {
+    const user = Users.findOne({username: 'batman'});
+    project.setUsers(user, {username: 'batman'})
+  });
+});
+
+ProjectUsers.sync().then(function () {});
 
 Tasks.sync({ force: true }).then(function () { //forces drop and re-add of table
   Tasks.create({
@@ -80,18 +91,10 @@ Tasks.sync({ force: true }).then(function () { //forces drop and re-add of table
     status: 'in progress',
     owner: 1,
     content: 'blah blah'
-  }).then(function (task) { });
+  }).then(function (task) {});
 });
 
-Users.belongsToMany(Projects, { through: 'ProjectUsers' });
-Projects.belongsToMany(Users, { through: 'ProjectUsers' });
+Users.belongsToMany(Projects, { through: 'project_users' });
+Projects.belongsToMany(Users, { through: 'project_users' });
 
-Users.create({
-  username: 'batman',
-  password: 'rachel',
-  name: 'morgan'
-}).then(function (user) {
-  user.setProjects(Projects, { title: 'save rachel', summary: 'kill joker' })
-});
-
-Tasks.belongsTo(Projects);
+Projects.hasMany(Tasks);
