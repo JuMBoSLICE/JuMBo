@@ -19,6 +19,7 @@ app.get('*', (req, res) => res.status(200).send({
   message: 'codeLaborate!'
 }));
 
+
 app.post('/users/signup', UserController.signup);
 
 app.listen(port, () => {
