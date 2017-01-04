@@ -4,8 +4,9 @@
   "description": "Project Management for project managers",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "export NODE_ENV=development; nodemon server/server.js"
+    "test": "webpack-dev-server",
+    "start": "nodemon src/server/server.js",
+    "build": "./node_modules/.bin/webpack -w"
   },
   "author": "",
   "license": "MIT",

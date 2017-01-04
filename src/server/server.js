@@ -1,8 +1,11 @@
 const express = require("express");
+const path = require('path');
 app = express();
 
+app.use(Express.static(path.join(__dirname, 'static')));
 
-app.get("/", (req, res) => {res.send("hello world")});
+
+app.get("/", (req, res) => {});
 
 
 
