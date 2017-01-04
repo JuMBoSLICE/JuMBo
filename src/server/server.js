@@ -1,14 +1,22 @@
-const express = require("express");
-const path = require('path');
-app = express();
+const express = require('express');
+// var fs = require('fs');
+const bodyParser = require('body-parser');
+const port = process.env.PORT || 3000;
+const pg = require('pg');
+const db = require('./database');
 
-app.use(Express.static(path.join(__dirname, 'static')));
+const app = express();
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
-app.get("/", (req, res) => {});
+app.use(express.static('src'));
 
-app.post("/signup", (req, res) => {
-  console.log("woo. hoo.")
-})
+app.get('*', (req, res) => res.status(200).send({
+  message: 'codeLaborate!'
+}));
 
-app.listen(3000);
+app.listen(port, () => {
+  console.log("Listening on port " + port);
+});
+
