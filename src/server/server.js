@@ -19,7 +19,14 @@ app.get('*', (req, res) => res.status(200).send({
   message: 'codeLaborate!'
 }));
 
-app.post('/users/signup', UserController.signup);
+// add new user to database from sign-up page
+app.post('/signup', UserController.signup);
+
+// authenticate existing user from login page
+app.post('/login', UserController.login);
+
+// create new project row in database
+app.post('/projects/create', ProjectController.create);
 
 app.listen(port, () => {
   console.log("Listening on port " + port);

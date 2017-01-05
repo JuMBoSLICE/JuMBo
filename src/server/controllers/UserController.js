@@ -15,9 +15,13 @@ const UserController = {
       username: req.body.username
     }).then(function(user) {
       if (user.password === req.body.password) {
-        res.redirect
+        // UPDATE ACCORDINGLY FOR VALID LOGIN
+        res.redirect('/dashboard')
+      } else {
+        // UPDATE ACCORDINGLY FOR INVALID LOGIN (display message 'incorrect')
+        res.redirect('/login')
       }
-    })
+    });
   }
 }
 
