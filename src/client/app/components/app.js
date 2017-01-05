@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Login from './login.js';
 import Signup from './signup.js';
 import styles from './../../style.css';
+import AddProject from './addProject';
 import Dashboard from './dashboard.js';
 import axios from 'axios';
 
@@ -22,6 +23,7 @@ class App extends Component {
     this.nameChange = this.nameChange.bind(this);
     this.passwordChange = this.passwordChange.bind(this);
     this.userVerify = this.userVerify.bind(this);
+    this.createProjectView = this.createProjectView.bind(this);
   }
 
   newRegistration() {
@@ -54,7 +56,7 @@ class App extends Component {
         password: this.state.password
       }).then((res) => {
         console.log(res.data);
-          this.setState({page: res.data})
+          this.setState({page: 2})
       }).catch((error) => {
           console.log(error);
       })
@@ -76,6 +78,10 @@ class App extends Component {
     const state = {};
     state.password= e.target.value;
     this.setState(state);
+  }
+
+  createProjectView() {
+    this.setState({page: 3})
   }
 
   render() {
@@ -108,7 +114,13 @@ class App extends Component {
 
     if (this.state.page === 2) {
       return ( 
-        <Dashboard />
+        <Dashboard viewChange = {this.createProjectView}/>
+      )
+    }
+
+    if (this.state.page === 3) {
+      return (
+        <AddProject />
       )
     }
   }
