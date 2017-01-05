@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Login from './login.js';
 import Signup from './signup.js';
 import styles from './../../style.css';
+import AddProject from './addProject';
 import Dashboard from './dashboard.js';
 import axios from 'axios';
 
@@ -22,6 +23,7 @@ class App extends Component {
     this.nameChange = this.nameChange.bind(this);
     this.passwordChange = this.passwordChange.bind(this);
     this.userVerify = this.userVerify.bind(this);
+    this.changeView = this.changeView.bind(this);
   }
 
   newRegistration() {
@@ -78,6 +80,10 @@ class App extends Component {
     this.setState(state);
   }
 
+  changeView(num) {
+    this.setState({page: num})
+  }
+
   render() {
     if (this.state.page === 0) {
       return (
@@ -108,7 +114,13 @@ class App extends Component {
 
     if (this.state.page === 2) {
       return ( 
-        <Dashboard />
+        <Dashboard changeView = {this.changeView}/>
+      )
+    }
+
+    if (this.state.page === 3) {
+      return (
+        <AddProject />
       )
     }
   }
