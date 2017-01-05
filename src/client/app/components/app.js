@@ -56,7 +56,7 @@ class App extends Component {
         password: this.state.password
       }).then((res) => {
         console.log(res.data);
-          this.setState({page: 2})
+          this.setState({page: res.data})
       }).catch((error) => {
           console.log(error);
       })
