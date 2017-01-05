@@ -11,8 +11,9 @@ const UserController = {
     });
   },
   login: function(req, res) {
-    Users.findOne({
-      username: req.body.username
+    console.log(req.body);
+    Users.findOne({ where: {
+      username: req.body.username}
     }).then(function(user) {
       console.log('found user: ', user);
       if (user.password === req.body.password) {
