@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 
-class Signup extends Component {
+const Signup = (props) => {
   render() {
     console.log(this.props)
     return (
