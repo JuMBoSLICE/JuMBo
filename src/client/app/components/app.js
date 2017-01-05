@@ -47,77 +47,72 @@ class App extends Component {
   }
 
 
-    userVerify() {
+  userVerify() {
     console.log('inside user verify')
       axios.post('/login', {
         username: this.state.username,
         password: this.state.password
-      }).then(function(response){
-          console.log(response);
-      }).catch(function(error) {
+      }).then((res) => {
+        console.log(res.data);
+          this.setState({page: res.data})
+      }).catch((error) => {
           console.log(error);
-      }) 
-    this.setState({page: 0});
+      })
   }
 
   usernameChange(e) {
-      const state = {};
-      state.username = e.target.value;
-      this.setState(state);
-      console.log('this.state:', this.state);
+    const state = {};
+    state.username = e.target.value;
+    this.setState(state);
   }
 
-    nameChange(e) {
-    console.log('in formchange')
-      const state = {};
-      state.name = e.target.value;
-      this.setState(state);
-      console.log('this.state:', this.state);
-   
+  nameChange(e) {
+    const state = {};
+    state.name = e.target.value;
+    this.setState(state);
   }
 
-    passwordChange(e) {
-      const state = {};
-      state.password= e.target.value;
-      this.setState(state);
-      console.log('this.state:', this.state);
-  
+  passwordChange(e) {
+    const state = {};
+    state.password= e.target.value;
+    this.setState(state);
   }
 
-render() {
-if (this.state.page === 0) {
-return(
-  <Login 
-    newRegistration = {this.newRegistration}
-    page={this.state.page}
-    userVerify = {this.userVerify}
-    usernameChange = {this.usernameChange}
-    passwordChange = {this.passwordChange}
-    />
-    )
-};
+  render() {
+    if (this.state.page === 0) {
+      return (
+        <Login 
+          newRegistration = {this.newRegistration}
+          page={this.state.page}
+          userVerify = {this.userVerify}
+          usernameChange = {this.usernameChange}
+          passwordChange = {this.passwordChange}
+          />
+        )
+    };
 
-if (this.state.page === 1) {
-  return( 
-    <Signup 
-      newRegistration = {this.newRegistration}
-      usernameChange = {this.usernameChange}
-      nameChange = {this.nameChange}
-      passwordChange = {this.passwordChange}
-      username = {this.state.username}
-      password = {this.state.password}
-      name = {this.state.name}
-      signUpPost = {this.signUpPost}
-    />
-  )
-}    
-}     
+    if (this.state.page === 1) {
+      return ( 
+        <Signup 
+          newRegistration = {this.newRegistration}
+          usernameChange = {this.usernameChange}
+          nameChange = {this.nameChange}
+          passwordChange = {this.passwordChange}
+          username = {this.state.username}
+          password = {this.state.password}
+          name = {this.state.name}
+          signUpPost = {this.signUpPost}
+        />
+      )
+    }  
 
-//if thiis
-// render( 
-//   <Dashboard />
-
-//   , document.getElementById("root"));
+    if (this.state.page === 2) {
+      return ( 
+        <Dashboard />
+      )
+    }
+  }
 
 }
+
 export default App;

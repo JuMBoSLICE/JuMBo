@@ -14,12 +14,15 @@ const UserController = {
     Users.findOne({
       username: req.body.username
     }).then(function(user) {
+      console.log('found user: ', user);
       if (user.password === req.body.password) {
+        console.log('req body: ', req.body);
         // UPDATE ACCORDINGLY FOR VALID LOGIN
-        res.redirect('/dashboard')
+        res.send('2');
       } else {
+        console.log('req body: ', req.body);
         // UPDATE ACCORDINGLY FOR INVALID LOGIN (display message 'incorrect')
-        res.redirect('/login')
+        res.send('0');
       }
     });
   }
