@@ -10,7 +10,7 @@ class Dashboard extends Component {
           <div className="container">
             <div className="content">
               <h2>Projects</h2>
-              <p className="no-projects">You currently have no projects. <a href="#" onClick={this.props.viewChange}>Create a project</a>.</p>
+              <p className="no-projects">You currently have no projects. <a href="#" onClick={ () => {this.props.changeView(3)} }>Create a project</a>.</p>
             </div>
           </div>
         </section>

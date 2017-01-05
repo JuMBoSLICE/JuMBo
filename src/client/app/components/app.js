@@ -23,7 +23,7 @@ class App extends Component {
     this.nameChange = this.nameChange.bind(this);
     this.passwordChange = this.passwordChange.bind(this);
     this.userVerify = this.userVerify.bind(this);
-    this.createProjectView = this.createProjectView.bind(this);
+    this.changeView = this.changeView.bind(this);
   }
 
   newRegistration() {
@@ -80,8 +80,8 @@ class App extends Component {
     this.setState(state);
   }
 
-  createProjectView() {
-    this.setState({page: 3})
+  changeView(num) {
+    this.setState({page: num})
   }
 
   render() {
@@ -114,7 +114,7 @@ class App extends Component {
 
     if (this.state.page === 2) {
       return ( 
-        <Dashboard viewChange = {this.createProjectView}/>
+        <Dashboard changeView = {this.changeView}/>
       )
     }
 
