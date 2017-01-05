@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Create a Project</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700|Ubuntu+Mono" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../client/style.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1 class="logo"><a href="dashboard.html"><img src="http://i.imgur.com/dLQMwZp.png"></a></h1>
+      <nav>
+        <ul id="navigation">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Add Project</a></li>
+          <li><a href="#">Profile</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <section id="main">
+    <div class="container">
+      <!--<div class="sidebar"></div>-->
+      <div class="content">
+        <h2>Codesmith Senior Project</h2>
+        <h3 class="heading">Project Overview</h3>
+        <div class="project-row clearfix">
+          <div class="team one-third">
+            <h3>Team Members</h3>
+            <p>Brian, Jon, Max, Mike</p>
+          </div>
+          <div class="project-date one-third">
+            <h3>Project Date</h3>
+            <p>01/05/2017</p>
+          </div>
+          <div class="project-status one-third">
+            <h3>Tasks Completed</h3>
+            <p>1 of 4 (25%)</p>
+          </div>
+        </div>
+        <div class="project-row clearfix">
+          <div id="project-summary">
+            <h3>Project Summary</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+              Commodi rerum ducimus magni nesciunt fugiat! Consequatur veritatis temporibus voluptas odio. 
+              Enim accusamus, assumenda odio atque aut? Soluta a molestias natus, ex!</p>
+          </div>
+        </div>
+        <div id="tasks">
+          <h3 class="heading">Project Tasks</h3>
+          <ul>
+            <li class="clearfix">
+              <h3>Front End Prototyping</h3>
+              <div class="one-quarter">
+                <p>Priority: <span>Medium</span></p>
+              </div>
+              <div class="one-quarter">
+                <p>Assigned to: <span>Mike</span></p>
+              </div>
+              <div class="one-quarter">
+                <p>Status: <span>In Progress</span></p>
+              </div>
+              <a href="#" class="delete-task">Erase Task</a>
+              <a href="#" class="update-task">Update Task</a>
+            </li>
+            <li class="clearfix">
+              <h3>Create the Database</h3>
+              <div class="one-quarter">
+                <p>Priority: <span>High</span></p>
+              </div>
+              <div class="one-quarter">
+                <p>Assigned to: <span>Max</span></p>
+              </div>
+              <div class="one-quarter">
+                <p>Status: <span>Under Review</span></p>
+              </div>
+              <a href="#" class="delete-task">Erase Task</a>
+              <a href="#" class="update-task">Update Task</a>
+            </li>
+            <li class="clearfix">
+              <h3>Create Webpack File</h3>
+              <div class="one-quarter">
+                <p>Priority: <span>Medium</span></p>
+              </div>
+              <div class="one-quarter">
+                <p>Assigned to: <span>Jon</span></p>
+              </div>
+              <div class="one-quarter">
+                <p>Status: <span>Completed</span></p>
+              </div>
+              <a href="#" class="delete-task">Erase Task</a>
+              <a href="#" class="update-task">Update Task</a>
+            </li>
+            <li class="clearfix">
+              <h3>Research Topics</h3>
+              <div class="one-quarter">
+                <p>Priority: <span>High</span></p>
+              </div>
+              <div class="one-quarter">
+                <p>Assigned to: <span>Brian</span></p>
+              </div>
+              <div class="one-quarter">
+                <p>Status: <span>In Progress</span></p>
+              </div>
+              <a href="#" class="delete-task">Erase Task</a>
+              <a href="#" class="update-task">Update Task</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div class="container">
+      <p>This app was created by the fine folks at SpeTortle</p>
+    </div>
+  </footer>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+  <script>
+    $("#team-select").select2({
+      placeholder: 'Search for team members'
+    });
+  </script>
+</body>
+</html>

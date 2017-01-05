@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Create a Project</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700|Ubuntu+Mono" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../client/style.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1 class="logo"><a href="dashboard.html"><img src="http://i.imgur.com/dLQMwZp.png"></a></h1>
+      <nav>
+        <ul id="navigation">
+          <li><a href="#">Link 1</a></li>
+          <li><a href="#">Link 2</a></li>
+          <li><a href="#">Link 3</a></li>
+          <li><a href="#">Link 4</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <section id="main">
+    <div class="container">
+      <!--<div class="sidebar"></div>-->
+      <div class="content">
+        <h2>Create Project</h2>
+        <form action="/create-project" method="POST" id="create-project">
+          <div class="form-row clearfix">
+            <div class="input-half project-title">
+              <label for="project-name">Project Title</label><input type="text" id="project-name" name="project-name">
+            </div>
+            <div class="input-half project-select">
+              <label for="team-select">Add Team Members</label>
+              <select name="team-select" id="team-select" placeholder="Type to find your teammate" style="width: 100%; border: 1px solid #eaeaea;" multiple="multiple">
+                <option value="1">Anto</option>
+                <option value="2">Brian</option>
+                <option value="3">Chris</option>
+                <option value="4">Dave</option>
+                <option value="5">Jon</option>
+                <option value="6">Max</option>
+                <option value="7">Mike</option>
+                <option value="8">Scott</option>
+              </select>
+            </div>
+          </div>
+          <div class="input-full project-summary">
+            <label for="project-summary">Summarize Your Project</label>
+            <textarea id="project-summary" id="project-summary"></textarea>
+          </div>
+          <div class="clearfix">
+            <button type="submit" id="project-submit">Save Project</button><a href="#" class="reset-project">Reset Project</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div class="container">
+      <p>This app was created by the fine folks at SpeTortle</p>
+    </div>
+  </footer>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+  <script>
+    $("#team-select").select2({
+      placeholder: 'Search for team members'
+    });
+  </script>
+</body>
+</html>
