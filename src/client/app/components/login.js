@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { render } from 'react-dom';
 
-class Login extends Component {
+const Login = (props) => {
 
   
 

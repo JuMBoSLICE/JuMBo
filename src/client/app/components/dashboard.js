@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { render } from 'react-dom';
 
-class Dashboard extends Component {
+const Dashboard = (props) => {
   render() {
     return (
       <h1>dashboard!!!</h1>

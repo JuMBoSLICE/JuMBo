@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Login from './login.js';
-import { render } from 'react-dom';
 import Signup from './signup.js';
 import styles from './../../style.css';
 import Dashboard from './dashboard.js';

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 
-class Signup extends Component {
+const Signup = (props) => {
   render() {
     return (
       <div id='auth'>
