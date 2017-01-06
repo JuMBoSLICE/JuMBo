@@ -7,9 +7,8 @@ class Header extends Component {
     <div className="container">
       <h1 className="logo"><a href="dashboard.html"><img src="http://i.imgur.com/dLQMwZp.png" /></a></h1>
       <nav>
-        <span>Greetings, User</span>
         <ul id="navigation">
-          <li><a href="#">Home</a></li>
+          <li><a href="#">Dashboard</a></li>
           <li><a href="#">Add Project</a></li>
           <li><a href="#">Profile</a></li>
         </ul>

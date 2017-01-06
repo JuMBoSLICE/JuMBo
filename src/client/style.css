@@ -429,6 +429,11 @@ footer {
 
 #auth p {
   margin-top: 1em;
+  font-size: 14px;
+}
+
+#auth a {
+  cursor: pointer;
 }
 
 .username {

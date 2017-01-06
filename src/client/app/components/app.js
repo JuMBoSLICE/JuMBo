@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Login from './login.js';
 import Signup from './signup.js';
 import styles from './../../style.css';
+import AddProject from './addProject';
 import Dashboard from './dashboard.js';
 import axios from 'axios';
 import AddProj from './addProj.js';
@@ -91,7 +92,7 @@ class App extends Component {
     this.setState(state);
   }
 
-//conditional rendering for various components, pass down props
+
   render() {
     if (this.state.page === 0) {
       return (
@@ -125,7 +126,13 @@ class App extends Component {
 
     if (this.state.page === 2) {
       return ( 
-        <Dashboard />
+        <Dashboard changeView = {this.changeView}/>
+      )
+    }
+
+    if (this.state.page === 3) {
+      return (
+        <AddProject />
       )
     }
 
