@@ -1,6 +1,8 @@
 const Users = require('./../models/UserModel');
 
+
 const UserController = {
+  //register user, if username already exists send 'already exists' message
   signup: function(req, res) {
     Users.find({
       where: {username: req.body.username}
@@ -15,11 +17,12 @@ const UserController = {
           name: req.body.name
         })
         .then(function(user) {
-          res.send({message: 'New user created: ' + user, view: 0});
+          res.send({message: 'New user created!', view: 0});
         });
       }
     })
   },
+  //login user, if user or password is invalid, send 'invalid' message
   login: function(req, res) {
     console.log(req.body);
     Users.findOne({

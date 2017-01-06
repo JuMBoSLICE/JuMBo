@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Login from './login.js';
 import Signup from './signup.js';
 import styles from './../../style.css';
-import AddProject from './addProject';
 import Dashboard from './dashboard.js';
 import axios from 'axios';
 import AddProj from './addProj.js';
@@ -19,6 +18,9 @@ class App extends Component {
       password: '',
       //signup message
       message: '',
+      newProject: '',
+      newProjectSummary: '',
+
     }
     this.newRegistration = this.newRegistration.bind(this);
     this.signUpPost = this.signUpPost.bind(this);
@@ -27,6 +29,8 @@ class App extends Component {
     this.passwordChange = this.passwordChange.bind(this);
     this.userVerify = this.userVerify.bind(this);
     this.changeView = this.changeView.bind(this);
+    this.projChange = this.projChange.bind(this);
+    this.createProject = this.createProject.bind(this);
   }
 
 //setState to change Login page to SignUp page
@@ -66,6 +70,18 @@ class App extends Component {
     })
   }
 
+//create new project in database, send client to dashboard
+  createProject() {
+    axios.post('/createProject', {
+      title: this.state.newProject,
+      summary: this.state.newProjectSummary
+    }).then((res) => {
+      this.setState({page: res.data.view, message: res.data.message})
+    }).catch((error) => {
+      console.log(error);
+    })
+  }
+
 //changes to appropriate view based on passed in variable
   changeView(num) {
     this.setState({page: num})
@@ -92,7 +108,14 @@ class App extends Component {
     this.setState(state);
   }
 
+//wraps project title input and sends project title value to state
+  projChange(e) {
+    const state = {};
+    state.newProject = e.target.value;
+    this.setState(state);
+  }
 
+//conditional rendering for components based on 'page' property in state
   render() {
     if (this.state.page === 0) {
       return (
@@ -132,14 +155,9 @@ class App extends Component {
 
     if (this.state.page === 3) {
       return (
-        <AddProject />
-      )
-    }
-
-    if (this.state.page === 3) {
-      return (
         <AddProj
-          changeView = {this.changeView}
+          projChange = {this.projChange}
+          createProject = {this.createProject}
         />
       )
     }
