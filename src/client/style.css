@@ -394,6 +394,10 @@ footer {
   text-transform: uppercase;
 }
 
+#message {
+  color: red;
+}
+
 #auth input {
   height: 32px;
   padding: 0 5px;
