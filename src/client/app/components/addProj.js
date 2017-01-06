@@ -14,19 +14,34 @@ class AddProj extends Component {
               <div id="create-project">
                 <div className="form-row clearfix">
                   <div className="input-half project-title">
-                    <label for="project-name">Project Title</label><input type="text" id="project-name" name="project-name" />
+
+                    <label for="project-name">Project Title</label>
+                    <input
+                      type="text"
+                      id="project-name"
+                      name="project-name"
+                      onChange={(e) => {this.props.projChange(e)}} 
+                    />
                   </div>
                   <div className="input-half project-select">
-                    <label for="team-select">Add Team Members</label>
-                    <input type="text" id="team-select" placeholder="" />
+                    <label for="project-name">Add Team Members</label>
+                    <select name="team-select" id="team-select" placeholder="Type to find your teammate" multiple="multiple">
+                    </select>
+
                   </div>
                 </div>
                 <div className="input-full project-summary">
                   <label for="project-summary">Summarize Your Project</label>
-                  <textarea id="project-summary" id="project-summary"></textarea>
+
+                  <textarea
+                    id="project-summary"
+                    id="project-summary"
+                    onChange={(e) => {this.props.projChange(e)}} >
+                  </textarea>
                 </div>
                 <div className="clearfix">
-                  <button type="submit" id="project-submit" onClick={ () => {this.props.changeView(4)} }>Save Project</button><a href="#" className="reset-project">Reset Project</a>
+                  <button type="submit" id="project-submit" onClick={ () => {this.props.createProject} }>Save Project</button><a href="#" className="reset-project">Reset Project</a>
+
                 </div>
               </div>
             </div>
