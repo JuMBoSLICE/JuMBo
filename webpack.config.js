@@ -1,17 +1,11 @@
 var path = require('path');
 var webpack = require('webpack');
-var BUILD = path.resolve(__dirname, 'src/client/public');
-var CLIENT = path.resolve(__dirname, 'src/client/app');
+
 module.exports = {
-  entry: [
-    'webpack-dev-server/client?http://localhost:8080',
-    'webpack/hot/only-dev-server',
-    CLIENT + '/components/index.js',
-    ],
+  entry: path.join(__dirname, 'src', 'client', 'app', 'components', 'index.js'),
   output: {
-    path: BUILD,
-    filename: 'bundle.js',
-    publicPath: '/public/'
+    path: path.join(__dirname, 'src', 'client', 'public'),
+    filename: 'bundle.js'
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
