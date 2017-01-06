@@ -14,25 +14,29 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-//get index.html
-app.get('/', function (req, res) {
-  res.status(200);
-  res.set({'Content-Type': 'text/html; charset=utf-8'});
-  res.sendFile(path.join(__dirname, '/../client/index.html'));
-})
+// // get index.html
+// app.get('/', function (req, res) {
+//   res.status(200);
+//   res.set({'Content-Type': 'text/html; charset=utf-8'});
+//   res.sendFile(path.join(__dirname, '/../client/index.html'));
+// })
 
-//get style.css
-app.get('/style.css', function (req, res) {
-  res.status(200);
-  res.set({'Content-Type': 'text/css; charset=utf-8'});
-  res.sendFile(path.join(__dirname, '/../client/style.css'));
-})
+// //get style.css
+// app.get('/style.css', function (req, res) {
+//   res.status(200);
+//   res.set({'Content-Type': 'text/css; charset=utf-8'});
+//   res.sendFile(path.join(__dirname, '/../client/style.css'));
+// })
 
-//get bundle.js
-app.get('/bundle.js', function (req, res) {
-  res.status(200);
-  res.set({'Content-Type': 'application/json; charset=utf-8'});
-  res.sendFile(path.join(__dirname, '/../client/public/bundle.js'));
+// //get bundle.js
+// app.get('/bundle.js', function (req, res) {
+//   res.status(200);
+//   res.set({'Content-Type': 'application/json; charset=utf-8'});
+//   res.sendFile(path.join(__dirname, '/../client/public/bundle.js'));
+// })
+
+app.get('/', (req, res) => {
+  res.status(200).sendFile(path.resolve(__dirname + './../client/index.html'));
 })
 
 app.use(express.static(path.join( __dirname, '../client/')));
