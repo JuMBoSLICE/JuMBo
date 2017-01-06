@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import Login from './login.js';
 import Signup from './signup.js';
 import styles from './../../style.css';
-import AddProject from './addProject';
 import Dashboard from './dashboard.js';
 import axios from 'axios';
 import AddProj from './addProj.js';
+import ViewProject from './viewProject';
+import DashExample from './dashExample';
 
 
 class App extends Component {
@@ -132,13 +133,21 @@ class App extends Component {
 
     if (this.state.page === 3) {
       return (
-        <AddProject />
+        <AddProj
+          changeView = {this.changeView}
+        />
       )
     }
-
-    if (this.state.page === 3) {
+    if (this.state.page === 4) {
       return (
-        <AddProj
+        <ViewProject
+          changeView = {this.changeView}
+        />
+      )
+    }
+    if (this.state.page === 5) {
+      return (
+        <DashExample
           changeView = {this.changeView}
         />
       )
