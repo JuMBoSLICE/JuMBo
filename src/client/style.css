@@ -195,7 +195,7 @@ label {
   margin-left: 5px;
 }
 
-form div {
+#create-project div {
   margin-bottom: 1.5em;
   line-height: 1.3;
 }
@@ -207,6 +207,10 @@ form div {
 
 .input-half:nth-of-type(2n){
   margin-right: 0;
+}
+
+.input-half:nth-of-type(2n):after{
+  clear: both;
 }
 
 .project-title, .project-select {
@@ -353,6 +357,9 @@ textarea {
   margin-right: 2%;
 }
 
+.form-row:after {
+  clear: both;
+}
 
 
 /* footer

@@ -16,7 +16,6 @@ class App extends Component {
       name: '',
       username: '', 
       password: '',
-      //signup message
       message: '',
       newProject: '',
       newProjectSummary: '',
@@ -126,8 +125,7 @@ class App extends Component {
           usernameChange = {this.usernameChange}
           passwordChange = {this.passwordChange}
           message = {this.state.message}
-          />
-          
+        />
       )
     };
 
