@@ -156,6 +156,7 @@ class App extends Component {
         <AddProj
           projChange = {this.projChange}
           createProject = {this.createProject}
+          changeView = {this.changeView}
         />
       )
     }
