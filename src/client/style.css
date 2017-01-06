@@ -1,10 +1,439 @@
+* {
+  box-sizing: border-box;
+}
+
+/* Reset
+============================================================== */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+ ul, li, ol {
+   list-style: none;
+ }
+
+/* body
+============================================================== */
 body {
-  background-color: blue;
+  background-color: white;
+  color: #444;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: deepskyblue;
+}
+
+/* Container
+============================================================== */
+.container {
+  width: 960px;
+  margin: 0 auto;
+  position: relative;
+  padding: 10px;
+}
+
+/* Clearfix
+============================================================== */
+.clearfix:after {
+    content:" ";
+    display:block;
+    clear:both;
+}
+/* header
+============================================================== */
+header {
+  width: 100%;
+  display: flex;
+  padding: .5em;
+  background: #fafafa;
+  border-bottom: 1px solid #eaeaea;
+}
+
+header h1 {
+  float: left;
+}
+
+header img {
+  height: 36px;
+}
+
+header nav {
+  float: right;
+  margin-top: .5em;
+}
+
+header nav li {
+  display: inline-block;
+  margin-right: 15px;
+  text-transform: uppercase;
+  font-size: 13px;
+}
+
+header a {
+  color: #666;
+}
+
+header nav li:last-of-type {
+  margin-right: 0;
+}
+
+/* Content 
+============================================================== */
+.content {
+  padding: 1em 0;
+}
+.content h2 {
+  font-size: 3em;
+  padding-bottom: 15px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.content p {
+  line-height: 1.5;
+}
+
+/* Dashboard
+============================================================== */
+.no-projects {
+  text-align: center;
+}
+
+#project-list {
+  margin-top: 1.5em;
+}
+
+#project-list li {
+  border-bottom: 1px solid #eaeaea;
+  position: relative;
+  padding: 1em;
+}
+
+#project-list li:nth-of-type(even) {
+  background: #fafafa;
+}
+
+#project-list h3 {
+  font-size: 1.25em;
+  font-weight: bold;
+}
+
+#project-list li p {
+  font-style: italic;
+  color: #888;
+}
+
+#project-list a{
+  display: block;
+  background: deepskyblue;
+  width: 100px;
+  height: 30px;
+  border-radius: 3px;
+  text-align: center;
+  color: white;
+  text-transform: uppercase;
+  font-size: 12px;
+  line-height: 30px;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  margin-top: -15px;
+  transition: background .3s ease;
+}
+
+#project-list a:hover, .update-task:hover {
+  background: #0063a4;
+}
+
+
+/* Create Project 
+============================================================== */
+#create-project {
+  width: 640px;
+  margin: 0 auto;
+  position: relative;
+}
+
+::-webkit-input-placeholder {
+   font-family: 'Open Sans', sans-serif;
+   font-size: 12px;
+}
+
+input {
+  -webkit-appearance: none;
+  outline: 0;
+  border: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  border: 1px solid #eaeaea;
+}
+
+label {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 5px;
+  margin-left: 5px;
+}
+
+form div {
+  margin-bottom: 1.5em;
+  line-height: 1.3;
+}
+.input-half {
+  width: 48%;
+  float: left;
+  margin-right: 4%;
+}
+
+.input-half:nth-of-type(2n){
+  margin-right: 0;
+}
+
+.project-title, .project-select {
+  height: 32px;
+  border-radius: 2px;
+}
+.project-summary {
+  height: 180px;
+  border-radius: 2px;
+}
+
+textarea {
+  -webkit-appearance: none;
+  outline: 0;
+  border: 0;
+  border-radius: 4px;
+  height: 100%;
+  width: 100%;
+  border: 1px solid #eaeaea;
+}
+.select2-container--default .select2-selection--multiple {
+  border: 1px solid #eaeaea;
+}
+
+#project-submit {
+  outline: 0;
+  display: block;
+  float: right;
+  margin-top: 1em;
+  -webkit-appearance: none;
+  border: 0;
+  width: 120px;
+  height: 40px;
+  background: deepskyblue;
+  color: white;
+  text-transform: uppercase;
+  font-size: 14px;
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  border-radius: 2px;
+  line-height: 40px;
+  cursor: pointer;
+  transition: background .3s ease;
+}
+
+#project-submit:hover {
+  background: #0063a4;
+}
+.reset-project {
+  float: right;
+  margin-right: 1.5em;
+  font-size: 13px;
+  color: #0063a4;
+  margin-top: 2.25em;
+}
+
+/* View Project 
+============================================================== */
+.center span {
+  font-weight: bold;
+}
+
+.heading {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin: 1.25em 0 .5em 5px;
+}
+
+.one-third {
+  float: left;
+  width: 32%;
+  margin-right: 2%;
+  text-align: center;
+  padding: 1em;
+  background: #fafafa;
+  border-radius: 3px;
+  border: 1px solid #eaeaea;
+}
+.project-row h3 {
+  font-weight: bold;
+  margin-bottom: .25em;
+}
+
+#project-summary {
+  padding: 1em;
+  margin-top: 1em;
+  background: #fafafa;
+  border-radius: 3px;
+  border: 1px solid #eaeaea;
+}
+
+.one-third:nth-of-type(3n) {
+  margin-right: 0;
+}
+
+#tasks {
+  margin-top: 2.5em;
+}
+
+#tasks li {
+  border: 1px solid #eaeaea;
+  position: relative;
+  padding: 1em;
+  margin-bottom: 1em;
+}
+
+#tasks li:nth-of-type(even) {
+  background: #fafafa;
+}
+
+#tasks li h3 {
+  font-weight: bold;
+  font-size: 1.25em;
+  margin-bottom: 1em;
+}
+
+.update-task, .delete-task {
+  display: block;
+  background: deepskyblue;
+  width: 100px;
+  height: 30px;
+  border-radius: 3px;
+  text-align: center;
+  color: white;
+  text-transform: uppercase;
+  font-size: 12px;
+  line-height: 30px;
+  position: absolute;
+  right: 15px;
+  bottom: 1.5em;
+  transition: background .3s ease;
+}
+
+.delete-task {
+  background: indianred;
+  top: 1.5em;
+}
+.delete-task:hover {
+  background: darkred;
+}
+.one-quarter {
+  width: 26%;
+  float: left;
+  margin-right: 2%;
+}
+
+
+
+/* footer
+============================================================== */
+footer {
+  text-align: center;
+}
+
+
+/* Login and Signup
+============================================================== */
+.logo {
+  width: 80px;
+  display: block;
+  margin: 0 auto;
 }
 
 #auth {
-  margin: 0 auto;
+  width: 300px;
+  margin: 2em auto;
   text-align: center;
+  padding: 1em;
+  background: #fafafa;
+  border-radius: 3px;
+  border: 1px solid #eaeaea;
+}
+
+#auth h2 {
+  font-weight: bold;
+  margin-bottom: 2em;
+}
+
+#auth h4 {
+  text-align: left;
+  font-size: 13px;
+  padding-left: 5px;
+  margin-bottom: .5em;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+#message {
+  color: red;
+}
+
+#auth input {
+  height: 32px;
+  padding: 0 5px;
+  outline: 0;
+  -webkit-appearance: none;
+  border: 0;
+  border: 1px solid #eaeaea;
+  border-radius: 3px;
+  margin-bottom: 1em;
+}
+
+#auth button {
+  outline: 0;
+  border: 0;
+  -webkit-appearance: none;
+  display: block;
+  width: 98%;
+  margin: 0 auto;
+  background: deepskyblue;
+  color: white;
+  border-radius: 3px;
+  text-transform: uppercase;
+  text-align: center;
+  height: 40px;
+  font-size: 16px;
+  font-family: "Open Sans", sans-serif;
+  line-height: 38px;
+}
+
+#auth p {
+  margin-top: 1em;
+  font-size: 14px;
+}
+
+#auth a {
+  cursor: pointer;
 }
 
 .username {

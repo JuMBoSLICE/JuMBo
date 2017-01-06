@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import Login from './login.js';
 import Signup from './signup.js';
 import styles from './../../style.css';
+import AddProject from './addProject';
 import Dashboard from './dashboard.js';
 import axios from 'axios';
+import AddProj from './addProj.js';
 
 
 class App extends Component {
@@ -14,7 +16,9 @@ class App extends Component {
       page: 0,
       name: '',
       username: '', 
-      password: '', 
+      password: '',
+      //signup message
+      message: '',
     }
     this.newRegistration = this.newRegistration.bind(this);
     this.signUpPost = this.signUpPost.bind(this);
@@ -22,8 +26,10 @@ class App extends Component {
     this.nameChange = this.nameChange.bind(this);
     this.passwordChange = this.passwordChange.bind(this);
     this.userVerify = this.userVerify.bind(this);
+    this.changeView = this.changeView.bind(this);
   }
 
+//setState to change Login page to SignUp page
   newRegistration() {
     if (this.state.page === 0) {
       this.setState({page: 1});
@@ -32,51 +38,60 @@ class App extends Component {
     }
   }
 
+//register new user on signup page, create new user in database, send client to login page
   signUpPost() {
-    console.log('inside signuppost')
-      axios.post('/signup', {
-        username: this.state.username,
-        name: this.state.name,
-        password: this.state.password,
-      }).then(function(response){
-          console.log(response);
-      }).catch(function(error) {
-          console.log(error);
-      }) 
-    this.setState({page: 0});
+    axios.post('/signup', {
+      username: this.state.username,
+      name: this.state.name,
+      password: this.state.password,
+    }).then((res) => {
+      this.setState({
+        page: res.data.view,
+        message: res.data.message
+      });
+    }).catch(function(error) {
+      console.log(error);
+    }) 
   }
 
-
+//verify user, send user to database 
   userVerify() {
-    console.log('inside user verify')
-      axios.post('/login', {
-        username: this.state.username,
-        password: this.state.password
+    axios.post('/login', {
+      username: this.state.username,
+      password: this.state.password
       }).then((res) => {
-        console.log(res.data);
-          this.setState({page: res.data})
+        this.setState({page: res.data.view, message: res.data.message})
       }).catch((error) => {
-          console.log(error);
-      })
+        console.log(error);
+    })
   }
 
+//changes to appropriate view based on passed in variable
+  changeView(num) {
+    this.setState({page: num})
+  }
+
+//wraps username input and sends username value to state
   usernameChange(e) {
     const state = {};
     state.username = e.target.value;
     this.setState(state);
   }
 
+//wraps name input and sends name value to state
   nameChange(e) {
     const state = {};
     state.name = e.target.value;
     this.setState(state);
   }
 
+//wraps password input and sends password value to state
   passwordChange(e) {
     const state = {};
     state.password= e.target.value;
     this.setState(state);
   }
+
 
   render() {
     if (this.state.page === 0) {
@@ -87,8 +102,10 @@ class App extends Component {
           userVerify = {this.userVerify}
           usernameChange = {this.usernameChange}
           passwordChange = {this.passwordChange}
+          message = {this.state.message}
           />
-        )
+          
+      )
     };
 
     if (this.state.page === 1) {
@@ -102,13 +119,28 @@ class App extends Component {
           password = {this.state.password}
           name = {this.state.name}
           signUpPost = {this.signUpPost}
+          message = {this.state.message}
         />
       )
     }  
 
     if (this.state.page === 2) {
       return ( 
-        <Dashboard />
+        <Dashboard changeView = {this.changeView}/>
+      )
+    }
+
+    if (this.state.page === 3) {
+      return (
+        <AddProject />
+      )
+    }
+
+    if (this.state.page === 3) {
+      return (
+        <AddProj
+          changeView = {this.changeView}
+        />
       )
     }
   }
