@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Header from './header';
+import {Link} from 'react-router';
 
 
 class Signup extends Component {
@@ -8,7 +9,6 @@ class Signup extends Component {
         <div id='auth'>
         <img src="http://i.imgur.com/dLQMwZp.png" className="logo" />
         <h2>CodeLaborate</h2>
-        <h5 id='message'>{this.props.message}</h5>
         <h4>Sign Up</h4>
           <input
             className='name'
@@ -33,7 +33,7 @@ class Signup extends Component {
           </input>
           <button onClick={ () => {this.props.signUpPost()}} >Register</button>
 
-          <p><a onClick={this.props.newRegistration} >Actually, I have an account!</a></p>
+          <p><Link to='/'>Actually, I have an account!</Link></p>
         </div>
     )
   }
