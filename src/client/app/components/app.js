@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import {Router, Route, Link, IndexRoute, hashHistory, browserHistory} from 'react-router';
 import Login from './login.js';
 import Signup from './signup.js';
 import styles from './../../style.css';
 import Dashboard from './dashboard.js';
 import axios from 'axios';
 import AddProj from './addProj.js';
+import Header from './header';
 
 
 class App extends Component {
@@ -63,7 +65,8 @@ class App extends Component {
       username: this.state.username,
       password: this.state.password
       }).then((res) => {
-        this.setState({page: res.data.view, message: res.data.message})
+        // this.setState({page: res.data.view, message: res.data.message});
+        this.context.router.transitionTo('/home');
       }).catch((error) => {
         console.log(error);
     })
@@ -116,50 +119,61 @@ class App extends Component {
 
 //conditional rendering for components based on 'page' property in state
   render() {
-    if (this.state.page === 0) {
-      return (
-        <Login 
-          newRegistration = {this.newRegistration}
-          page={this.state.page}
-          userVerify = {this.userVerify}
-          usernameChange = {this.usernameChange}
-          passwordChange = {this.passwordChange}
-          message = {this.state.message}
-        />
-      )
-    };
+    return (
+      <Router history={hashHistory}>
+        <Route path='/'>
+          <IndexRoute component={Login} />
+          <Route path='signUp' component={Signup} />
+          <Route path='home' component={Header}>
+            <IndexRoute component={Dashboard} />
+          </Route>
+        </Route>
+      </Router>
+    )
+    // if (this.state.page === 0) {
+    //   return (
+    //     <Login 
+    //       newRegistration = {this.newRegistration}
+    //       page={this.state.page}
+    //       userVerify = {this.userVerify}
+    //       usernameChange = {this.usernameChange}
+    //       passwordChange = {this.passwordChange}
+    //       message = {this.state.message}
+    //     />
+    //   )
+    // };
 
-    if (this.state.page === 1) {
-      return ( 
-        <Signup 
-          newRegistration = {this.newRegistration}
-          usernameChange = {this.usernameChange}
-          nameChange = {this.nameChange}
-          passwordChange = {this.passwordChange}
-          username = {this.state.username}
-          password = {this.state.password}
-          name = {this.state.name}
-          signUpPost = {this.signUpPost}
-          message = {this.state.message}
-        />
-      )
-    }  
+    // if (this.state.page === 1) {
+    //   return ( 
+    //     <Signup 
+    //       newRegistration = {this.newRegistration}
+    //       usernameChange = {this.usernameChange}
+    //       nameChange = {this.nameChange}
+    //       passwordChange = {this.passwordChange}
+    //       username = {this.state.username}
+    //       password = {this.state.password}
+    //       name = {this.state.name}
+    //       signUpPost = {this.signUpPost}
+    //       message = {this.state.message}
+    //     />
+    //   )
+    // }  
 
-    if (this.state.page === 2) {
-      return ( 
-        <Dashboard changeView = {this.changeView}/>
-      )
-    }
+    // if (this.state.page === 2) {
+    //   return ( 
+    //     <Dashboard changeView = {this.changeView}/>
+    //   )
+    // }
 
-    if (this.state.page === 3) {
-      return (
-        <AddProj
-          projChange = {this.projChange}
-          createProject = {this.createProject}
-          changeView = {this.changeView}
-        />
-      )
-    }
+    // if (this.state.page === 3) {
+    //   return (
+    //     <AddProj
+    //       projChange = {this.projChange}
+    //       createProject = {this.createProject}
+    //       changeView = {this.changeView}
+    //     />
+    //   )
+    // }
   }
 
 }

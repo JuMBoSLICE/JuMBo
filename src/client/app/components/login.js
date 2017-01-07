@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-
+import {Link} from 'react-router';
+ 
 class Login extends Component {
 
   render() {
@@ -7,7 +8,6 @@ class Login extends Component {
       <div id='auth'>
         <img src="http://i.imgur.com/dLQMwZp.png" className="logo" />
         <h2>CodeLaborate</h2>
-        <h5 id='message'>{this.props.message}</h5>
         <h4>Log in</h4>
           <input
             className='username'
@@ -24,7 +24,7 @@ class Login extends Component {
             onChange={ (e) => {this.props.passwordChange(e)}}>
           </input>
           <button onClick={ () => {this.props.userVerify()}} >Log in</button>
-        <p>New User? <a onClick={this.props.newRegistration}>Sign up here.</a></p>
+        <p>New User? <Link to='/signUp'>Sign Up Here</Link></p>
       </div>
     )
   }
