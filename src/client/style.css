@@ -40,6 +40,7 @@ body {
 a {
   text-decoration: none;
   color: deepskyblue;
+
 }
 
 /* Container
@@ -49,6 +50,7 @@ a {
   margin: 0 auto;
   position: relative;
   padding: 10px;
+  display: block;
 }
 
 /* Clearfix
@@ -68,6 +70,7 @@ header {
   border-bottom: 1px solid #eaeaea;
 }
 
+
 header h1 {
   float: left;
 }
@@ -86,6 +89,7 @@ header nav li {
   margin-right: 15px;
   text-transform: uppercase;
   font-size: 13px;
+
 }
 
 header a {
@@ -106,6 +110,7 @@ header nav li:last-of-type {
   padding-bottom: 15px;
   font-weight: bold;
   text-align: center;
+
 }
 
 .content p {
