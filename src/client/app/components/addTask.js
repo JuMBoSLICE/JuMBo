@@ -41,14 +41,13 @@ class AddTask extends Component {
 
   render() {
     return (
-      <li>
+      <div>
         <label>Task Title</label><input type="text" id="task-name" name="task-name"  onChange={ (e) => {this.titleChange(e)}} />
         <label>Priority</label><input type="text" id="priority" name="priority"  onChange={ (e) => {this.priorityChange(e)}} />
         <label>Assigned to:</label><input type="text" id="assigned" name="assigned"  onChange={ (e) => {this.assignChange(e)}} />
         <label>Status:</label><input type="text" id="status" name="status"  onChange={ (e) => {this.statusChange(e)}} />
-        <button className="erase">Erase Task</button>
-        <button className="update">Update Task</button>
-      </li>
+        <button className="update-task">Add Task</button>
+      </div>
     )
   }
 }
