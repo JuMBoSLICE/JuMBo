@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router';
+import MessageBoard from './MessageBoard';
+
 class ProjectContainer extends Component {
   render() {
     return (
       <div>
-        container
+        <projectView />
+        <taskContainer />
+        <MessageBoard />
       </div>
     )
   }
