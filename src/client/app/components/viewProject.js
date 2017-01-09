@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from './header';
 import ProjectMembers from './projectMembers';
 import ProjectSummary from  './projectSummary';
+import MessageBoard from  './messageBoard';
 //import ProjectTask from './projectTask'
 
 class ViewProject extends Component {
@@ -13,11 +14,15 @@ class ViewProject extends Component {
       teamMembers: '' ,
       projectDate: '',
       tasks: [],
-      tasksCompleted:''
+      tasksCompleted:'',
+      messages: []
     }
   }
 
-
+  messagePost() {
+    // post message to database for project
+    // pass down as prop to messageBoard
+  }
 
   componentDidMount(){
 
@@ -43,16 +48,19 @@ class ViewProject extends Component {
                <h3 className="heading">Project Overview</h3>
                <div className="summary-container">
                 <div className="project-row clearfix">
-                /*  {ProjectMembers} */
+                {/*<ProjectMembers /> */}
                 </div>
                 <div className="project-row clearfix">
-                 /*  {ProjectSummary} */
+                 {/*<ProjectSummary />*/}
                 </div>
               </div>
+
               <div id="tasks">
                 <h3 className="heading">Project Tasks</h3>
-                /* {taskArray} */
+                {/* {taskArray} */}
               </div>
+              
+              <MessageBoard />
             </div>
           </div>
         </section>

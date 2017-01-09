@@ -451,3 +451,32 @@ footer {
 .username {
 }
 
+#message_board {
+  display: inline-block;
+  position: relative;
+  height: 580px;
+  width: 400px;
+  border: 1px solid #eaeaea;
+}
+
+#message_log {
+  height: 550px;
+  width: 100%;
+  background-color: lightgrey;
+}
+
+#message_box {
+  position: absolute;
+  bottom: 0px;
+  width: 90%;
+  height: 30px;
+}
+
+#message_post {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  height: 30px;
+  width: 10%;
+  border: none;
+}
