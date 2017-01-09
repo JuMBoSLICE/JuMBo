@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router';
-import MessageBoard from './MessageBoard';
+import ViewProject from './viewProject';
 
 class ProjectContainer extends Component {
   render() {
     return (
       <div>
-        <projectView />
-        <taskContainer />
-        <MessageBoard />
+        <ViewProject/>
       </div>
     )
   }
