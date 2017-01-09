@@ -4,14 +4,15 @@ const ProjectUsers = require('./../models/ProjectUserModel');
 //create new project
 const ProjectController = {
   create: function(req, res) {
+    // console.log('req body:', req.body);
     Projects.create({
       title: req.body.title,
-      summary: req.body.summary
+      summary: req.body.summary,
+      team_members: req.body.team_members,
+      tasks: req.body.tasks,
+      messages: req.body.messages,
     }).then(function(project) {
-      res.send({
-        message: 'New project created!',
-        view: 2
-      })
+      res.json(project);
     });
   },
 
@@ -42,7 +43,15 @@ const ProjectController = {
         res.send('Project deleted');
       });
     });
+  },
+
+  viewProjects: function(req, res) {
+    Projects.find({})
+      .then(function(projects) {
+        res.json(projects);
+      });
   }
+
 }
 
 module.exports = ProjectController;

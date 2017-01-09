@@ -12,8 +12,20 @@ class Dashboard extends Component {
   }
   
   componentDidMount(){
-
     //make ajax database call to update project list
+    fetch('/viewProjects', {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      }
+    })
+      .then(res => {
+        // console.log('retrieved projects:', res);
+      })
+      .then(res => {
+        console.log('retrieved projects:', res);
+      });
   }
 
 
@@ -28,7 +40,7 @@ class Dashboard extends Component {
           <div className="container">
             <div className="content">
               <h2>Projects</h2>
-              <p className="no-projects">You currently have no projects. <a href="#" >Create a project</a>.</p>
+              <p className="no-projects">You currently have no projects. <Link to='/createProject'>Create a project</Link>.</p>
             </div>
             <ul id='project-list'>
              {projectArray}
