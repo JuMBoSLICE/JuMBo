@@ -9,6 +9,7 @@ import ProjectContainer from './projectContainer.js';
 import axios from 'axios';
 import AddProj from './addProj.js';
 import Header from './header';
+import ViewProject from './viewProject.js';
 
 
 class App extends Component {
@@ -126,7 +127,7 @@ class App extends Component {
         <Route path='/' component={Header}>
           <IndexRoute component={Dashboard} />
           <Route path='/createProject' component={ProjectCreator} />
-          <Route path='/viewProject' component={ProjectContainer} />
+          <Route path='/viewProject' component={ViewProject} />
         </Route>
       </Router>
     )
