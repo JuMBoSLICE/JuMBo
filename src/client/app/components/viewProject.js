@@ -3,7 +3,7 @@ import Header from './header';
 import ProjectMembers from './projectMembers';
 import ProjectSummary from  './projectSummary';
 import MessageBoard from  './messageBoard';
-//import ProjectTask from './projectTask'
+import TaskContainer from './taskContainer';
 
 class ViewProject extends Component {
 
@@ -54,13 +54,10 @@ class ViewProject extends Component {
                  {/*<ProjectSummary />*/}
                 </div>
               </div>
-
-              <div id="tasks">
-                <h3 className="heading">Project Tasks</h3>
-                {/* {taskArray} */}
+              <div id="section_2">
+                <TaskContainer />
+                <MessageBoard />
               </div>
-              
-              <MessageBoard />
             </div>
           </div>
         </section>

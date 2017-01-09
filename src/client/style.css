@@ -313,6 +313,12 @@ textarea {
 
 #tasks {
   margin-top: 2.5em;
+  display: inline-block;
+  position: relative;
+  height: 580px;
+  width: 400px;
+  border: 1px solid #eaeaea;
+  float: left;
 }
 
 #tasks li {
@@ -457,6 +463,7 @@ footer {
   height: 580px;
   width: 400px;
   border: 1px solid #eaeaea;
+  float: left;
 }
 
 #message_log {
@@ -479,4 +486,18 @@ footer {
   height: 30px;
   width: 10%;
   border: none;
+}
+
+#taskContainer {
+  display: inline-block;
+  position: relative;
+  height: 580px;
+  width: 400px;
+  border: 1px solid #eaeaea;
+  float: left;
+}
+
+#section_2 {
+  display: relative;
+  margin: 0 auto;
 }
