@@ -4,6 +4,8 @@ import Login from './login.js';
 import Signup from './signup.js';
 import styles from './../../style.css';
 import Dashboard from './dashboard.js';
+import ProjectCreator from './projectCreator.js';
+import ProjectContainer from './projectContainer.js';
 import axios from 'axios';
 import AddProj from './addProj.js';
 import Header from './header';
@@ -121,12 +123,10 @@ class App extends Component {
   render() {
     return (
       <Router history={hashHistory}>
-        <Route path='/'>
-          <IndexRoute component={Login} />
-          <Route path='signUp' component={Signup} />
-          <Route path='home' component={Header}>
-            <IndexRoute component={Dashboard} />
-          </Route>
+        <Route path='/' component={Header}>
+          <IndexRoute component={Dashboard} />
+          <Route path='/createProject' component={ProjectCreator} />
+          <Route path='/viewProject' component={ProjectContainer} />
         </Route>
       </Router>
     )
