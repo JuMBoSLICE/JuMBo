@@ -12,7 +12,7 @@ class ProjectSummary extends Component {
   	return (
   		<div id="project-summary">
         <h3>Project Summary</h3>
-        <p>{this.props.projectSummary}</p>
+        <p>{this.props.summary}</p>
       </div>
       )
 

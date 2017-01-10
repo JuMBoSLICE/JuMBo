@@ -48,9 +48,24 @@ const ProjectController = {
   },
 
   viewProjects: function(req, res) {
-    Projects.find({})
+    Projects.findAll({})
       .then(function(projects) {
         res.json(projects);
+      });
+  },
+
+  viewProject: function(req, res) {
+    const projectID = Number(req.params.project);
+    console.log('projectID:', projectID);
+    const query = {
+      where: {
+        id: projectID
+      }
+    };
+
+    Projects.find(query)
+      .then(function(project) {
+        res.json(project);
       });
   }
 

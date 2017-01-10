@@ -7,8 +7,6 @@ const Projects = sequelize.define('projects', {
   team_members: Sequelize.ARRAY(Sequelize.STRING),
   tasks: Sequelize.ARRAY(Sequelize.STRING),
   messages: Sequelize.ARRAY(Sequelize.STRING),
-}, {
-  freezeTableName: true
 });
 
 Projects.sync();

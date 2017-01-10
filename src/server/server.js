@@ -50,6 +50,8 @@ app.post('/login', UserController.login);
 // read all projects from dashboard
 app.get('/viewProjects', ProjectController.viewProjects);
 
+app.get('/viewProject/:project', ProjectController.viewProject);
+
 // create new project row in database, send to ProjectController middleware
 app.post('/createProject', ProjectController.create);
 

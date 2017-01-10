@@ -20,7 +20,7 @@ class ProjectMembers extends Component {
 			  </div>
 			  <div className="project-status one-third">
 			    <h3>Tasks Completed</h3>
-			    <p>{this.props.tasksCompleted} of {this.props.tasks.length}</p>
+			    <p>0 of {this.props.tasks.length}</p>
 			  </div>
 			 </div>
 	  )

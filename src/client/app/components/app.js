@@ -127,7 +127,7 @@ class App extends Component {
         <Route path='/' component={Header}>
           <IndexRoute component={Dashboard} />
           <Route path='/createProject' component={ProjectCreator} />
-          <Route path='/viewProject' component={ViewProject} />
+          <Route path='/viewProject/:projectID' component={ViewProject} />
         </Route>
       </Router>
     )
