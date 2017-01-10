@@ -22,6 +22,7 @@ class Dashboard extends Component {
     })
       .then(res => {
         // console.log('retrieved projects:', res);
+        return res.json();
       })
       .then(res => {
         console.log('retrieved projects:', res);
