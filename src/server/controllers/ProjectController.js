@@ -12,6 +12,7 @@ const ProjectController = {
       tasks: req.body.tasks,
       messages: req.body.messages,
     }).then(function(project) {
+      console.log('PROJECT:', project);
       res.json(project);
     });
   },

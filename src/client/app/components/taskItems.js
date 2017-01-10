@@ -5,19 +5,19 @@ class TaskItems extends Component {
   render(){
 
     return (
-      <li class="clearfix">
+      <li className="clearfix">
         <h3>Create Webpack File</h3>
-        <div class="one-quarter">
+        <div className="one-quarter">
           <p>Priority: <span>Medium</span></p>
         </div>
-        <div class="one-quarter">
+        <div className="one-quarter">
           <p>Assigned to: <span>Jon</span></p>
         </div>
-        <div class="one-quarter">
+        <div className="one-quarter">
           <p>Status: <span>Completed</span></p>
         </div>
-        <a href="#" class="delete-task">Erase Task</a>
-        <a href="#" class="update-task">Update Task</a>
+        <a href="#" className="delete-task">Erase Task</a>
+        <a href="#" className="update-task">Update Task</a>
       </li>
     )
   }

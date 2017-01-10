@@ -29,6 +29,10 @@ class ViewProject extends Component {
     //make ajax database call to update project/task info
   }
 
+  addTask() {
+    
+  }
+
 
 
 

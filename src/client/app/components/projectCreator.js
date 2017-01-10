@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router';
+import { browserHistory } from 'react-router';
 
 class ProjectCreator extends Component {
   constructor(props){
@@ -33,14 +34,15 @@ class ProjectCreator extends Component {
         members : members
       });
       e.preventDefault();
+
     }
   }
 
   saveProject(e) {
     // post request to database sending title and summary
-    console.log(this.state.title);
-    console.log(this.state.summary);
-    console.log(this.state.members);
+    //console.log(this.state.title);
+    console.log('here');
+   // browserHistory.push('/viewProject/');
     fetch('/createProject', {
       method: 'POST',
       headers: {
@@ -55,11 +57,16 @@ class ProjectCreator extends Component {
         messages: []
       })
     })
-      .then(res => {
+      .then(data => {
+      // return data;
+      console.log('first promise:', data);
       })
-      .then(res => {
-        console.log(res);
+      .then(data => {
+        console.log('second promise:', data);
+        // console.log('RESPONSE DATA:', data);
+        // browserHistory.push('/viewProject/');
       });
+      e.preventDefault();
   }
   render() {
     const style = {
