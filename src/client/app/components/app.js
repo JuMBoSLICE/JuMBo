@@ -123,7 +123,7 @@ class App extends Component {
 //conditional rendering for components based on 'page' property in state
   render() {
     return (
-      <Router history={hashHistory}>
+      <Router history={browserHistory}>
         <Route path='/' component={Header}>
           <IndexRoute component={Dashboard} />
           <Route path='/createProject' component={ProjectCreator} />

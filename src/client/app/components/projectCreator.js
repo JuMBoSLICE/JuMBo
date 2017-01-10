@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router';
+import { browserHistory } from 'react-router';
 
 class ProjectCreator extends Component {
   constructor(props){
@@ -7,6 +8,7 @@ class ProjectCreator extends Component {
     this.state = {
       title: '',
       summary: '',
+      members: [],
     }
   }
 
@@ -24,22 +26,54 @@ class ProjectCreator extends Component {
     // console.log(this.state);
   }
 
-  saveProject() {
-    // post request to database sending title and summary
-    console.log(this.state.title);
-    console.log(this.state.summary);
+  handleEnterPress(e) {
+    if (e.key == 'Enter') {
+      const members = this.state.members.slice();
+      members.push(e.target.value);
+      this.setState({
+        members : members
+      });
+      e.preventDefault();
+
+    }
   }
 
-
-
+  saveProject(e) {
+    // post request to database sending title and summary
+    //console.log(this.state.title);
+    console.log('here');
+   // browserHistory.push('/viewProject/');
+    fetch('/createProject', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        title: this.state.title,
+        summary: this.state.summary,
+        team_members: this.state.members,
+        tasks: [],
+        messages: []
+      })
+    })
+      .then(data => {
+      // return data;
+      console.log('first promise:', data);
+      })
+      .then(data => {
+        console.log('second promise:', data);
+        // console.log('RESPONSE DATA:', data);
+        // browserHistory.push('/viewProject/');
+      });
+      e.preventDefault();
+  }
   render() {
     const style = {
       width: '100%', 
       border: '1px solid #eaeaea'
     };
-
     return (
-
       <div className="container">
         <div className="content">
           <h2>Create Project</h2>
@@ -50,16 +84,7 @@ class ProjectCreator extends Component {
               </div>
               <div className="input-half project-select">
                 <label>Add Team Members</label>
-                <select name="team-select" id="team-select" placeholder="Type to find your teammate" style={style} multiple="multiple">
-                  <option value="1">Anto</option>
-                  <option value="2">Brian</option>
-                  <option value="3">Chris</option>
-                  <option value="4">Dave</option>
-                  <option value="5">Jon</option>
-                  <option value="6">Max</option>
-                  <option value="7">Mike</option>
-                  <option value="8">Scott</option>
-                </select>
+                <input type="text" id="project-members" name="project-members" onKeyPress={(e) => {this.handleEnterPress(e)}} />
               </div>
             </div>
             <div className="input-full project-summary">
@@ -67,7 +92,7 @@ class ProjectCreator extends Component {
               <textarea id="project-summary" id="project-summary" onChange={ (e) => {this.summaryChange(e)}} ></textarea>
             </div>
             <div className="clearfix">
-              <button onClick={() => {this.saveProject()}} id="project-submit">Save Project</button><a href="#" className="reset-project">Reset Project</a>
+              <button onClick={(e) => {this.saveProject(e)}} id="project-submit">Save Project</button><a href="#" className="reset-project">Reset Project</a>
             </div>
           </form>
         </div>

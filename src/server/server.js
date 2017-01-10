@@ -7,7 +7,7 @@ const db = require('./database');
 const path = require('path');
 const UserController = require('./controllers/UserController');
 const ProjectController = require('./controllers/ProjectController');
-const TaskController = require('./controllers/TaskController');
+// const TaskController = require('./controllers/TaskController');
 
 const app = express();
 
@@ -46,6 +46,9 @@ app.post('/signup', UserController.signup);
 
 // authenticate existing user from login page, send to UserController middleware
 app.post('/login', UserController.login);
+
+// read all projects from dashboard
+app.get('/viewProjects', ProjectController.viewProjects);
 
 // create new project row in database, send to ProjectController middleware
 app.post('/createProject', ProjectController.create);
