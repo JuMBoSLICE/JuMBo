@@ -47,7 +47,7 @@ class ProjectCreator extends Component {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json; charset=UTF-8'
       },
       body: JSON.stringify({
         title: this.state.title,
@@ -57,14 +57,14 @@ class ProjectCreator extends Component {
         messages: []
       })
     })
-      .then(data => {
-      // return data;
-      console.log('first promise:', data);
+      .then(res => {
+        // return data;
+        return res.json();
       })
-      .then(data => {
-        console.log('second promise:', data);
+      .then(res => {
+        console.log('second promise:', res);
         // console.log('RESPONSE DATA:', data);
-        // browserHistory.push('/viewProject/');
+        browserHistory.push('/viewProject/');
       });
       e.preventDefault();
   }

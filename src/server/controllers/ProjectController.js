@@ -13,6 +13,7 @@ const ProjectController = {
       messages: req.body.messages,
     }).then(function(project) {
       console.log('PROJECT:', project);
+      console.log('typeof', typeof project);
       res.json(project);
     });
   },
